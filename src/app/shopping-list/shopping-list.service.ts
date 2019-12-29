@@ -14,5 +14,11 @@ export class ShoppingListService {
     this.ingredients.push(ingredient);
   }
 
+  deleteIngredient(ingredient: Ingredient) {
+    const index = this.ingredients.indexOf(ingredient, 0);
+    if (index > -1) {
+      this.ingredients.splice(index, 1);
+    }
+  }
 }
 

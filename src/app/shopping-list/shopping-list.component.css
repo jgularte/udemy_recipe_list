@@ -1,0 +1,7 @@
+.ingredient-item:hover .variable-show-button {
+  display: block;
+}
+
+.variable-show-button {
+  display: none;
+}
