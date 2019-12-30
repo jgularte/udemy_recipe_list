@@ -1,14 +1,15 @@
 <div class="row">
   <div class="col-xs-12">
-    <button class="btn btn-success">New Recipe</button>
+    <button class="btn btn-success" style="cursor: pointer">New Recipe</button>
   </div>
 </div>
 <hr>
 <div class="row">
   <div class="col-xs-12">
     <app-recipe-item
+      style="cursor: pointer"
       *ngFor="let recipeEl of recipes"
-      [recipe]="recipeEl"></app-recipe-item>
+      [routerLink]="['/recipes', 'detail', recipeEl.name]"></app-recipe-item>
   </div>
 </div>
 

@@ -1,5 +1,5 @@
 import { Recipe } from './recipe.model';
-import { EventEmitter } from '@angular/core';
+import {EventEmitter} from '@angular/core';
 import { Ingredient } from '../common/ingredient.model';
 
 export class RecipeService {
