@@ -6,10 +6,10 @@
 <hr>
 <div class="row">
   <div class="col-xs-12">
-    <app-recipe-item
-      style="cursor: pointer"
-      *ngFor="let recipeEl of recipes"
-      [routerLink]="['/recipes', 'detail', recipeEl.name]"></app-recipe-item>
+    <app-recipe-item style="cursor: pointer"
+                     *ngFor="let recipeEl of recipes; let i = index"
+                     [index]="i"
+    ></app-recipe-item>
   </div>
 </div>
 
