@@ -4,6 +4,7 @@ import { Recipe } from '../recipe.model';
 import {ShoppingListService} from '../../shopping-list/shopping-list.service';
 import {ActivatedRoute} from '@angular/router';
 import {RecipeService} from '../recipe.service';
+import {interval} from 'rxjs';
 
 @Component({
   selector: 'app-recipe-detail',
