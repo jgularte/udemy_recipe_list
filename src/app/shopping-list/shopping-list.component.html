@@ -6,8 +6,9 @@
       <li class="list-group-item clearfix ingredient-item" style="cursor: pointer" *ngFor="let ingredient of getIngredients(); index as i">
         <div>
           <span>{{ ingredient.name }} ({{ ingredient.quantity}})</span>
-          <span class="pull-right">
-            <button class="btn btn-danger variable-show-button" (click)="deleteIngredient(ingredient)">Delete Item</button>
+          <span class="btn-group pull-right">
+            <button class="btn btn-warning variable-show-button" (click)="onEditItem(i)">Edit Item</button>
+            <button class="btn btn-danger variable-show-button" (click)="deleteIngredient(i)">Delete Item</button>
           </span>
         </div>
       </li>

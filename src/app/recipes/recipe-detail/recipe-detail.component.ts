@@ -4,6 +4,8 @@ import { Recipe } from '../recipe.model';
 import {ShoppingListService} from '../../shopping-list/shopping-list.service';
 import {ActivatedRoute} from '@angular/router';
 import {RecipeService} from '../recipe.service';
+import {interval} from 'rxjs';
+import {FormArray} from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -31,5 +33,9 @@ export class RecipeDetailComponent implements OnInit {
     for (let ing of this.recipe.ingredients) {
       this.shoppingListService.addIngredient(ing);
     }
+  }
+
+  onDeleteRecipe() {
+    this.recipeService.deleteRecipe(this.id);
   }
 }

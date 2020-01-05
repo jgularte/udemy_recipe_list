@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import {ShoppingListService} from './shopping-list.service';
-import {Ingredient} from '../common/ingredient.model';
 
 @Component({
   selector: 'app-shopping-list',
@@ -20,7 +19,12 @@ export class ShoppingListComponent implements OnInit {
     return this.shoppingListService.getIngredients();
   }
 
-  deleteIngredient(ingredient: Ingredient) {
-    this.shoppingListService.deleteIngredient(ingredient);
+  deleteIngredient(index: number) {
+    this.shoppingListService.deleteIngredient(index);
+    this.shoppingListService.deletingItem.next(index);
+  }
+
+  onEditItem(index: number) {
+    this.shoppingListService.editingItem.next(index);
   }
 }

@@ -5,3 +5,7 @@
 .variable-show-button {
   display: none;
 }
+
+.variable-show-button:not(:last-child) {
+  padding-right: 12px;
+}
