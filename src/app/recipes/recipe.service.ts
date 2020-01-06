@@ -1,11 +1,11 @@
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../common/ingredient.model';
-import {Subject} from 'rxjs';
+import { Subject } from 'rxjs';
 
 export class RecipeService {
   recipesChanges = new Subject<Recipe[]>();
-
-  private recipes: Recipe[] = [
+  private recipes = [];
+/*  private recipes: Recipe[] = [
     new Recipe('Sushi Roll',
       'California Sushi Roll',
       'https://www.publicdomainpictures.net/pictures/160000/nahled/california-roll.jpg',
@@ -31,7 +31,7 @@ export class RecipeService {
         new Ingredient('pickles', 3),
         new Ingredient('ketchup', 1)
       ]
-    )];
+    )];*/
 
   getRecipes() {
     return this.recipes.slice();
@@ -54,6 +54,11 @@ export class RecipeService {
     if (index > -1) {
       this.recipes.splice(index, 1);
     }
+    this.recipesChanges.next(this.recipes.slice());
+  }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
     this.recipesChanges.next(this.recipes.slice());
   }
 }
