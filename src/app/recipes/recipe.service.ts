@@ -41,10 +41,6 @@ export class RecipeService {
     return this.recipes[index];
   }
 
-  addingFakeFunction() {
-
-  }
-
   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
     this.recipesChanges.next(this.recipes.slice());
