@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 export class RecipeService {
   recipesChanges = new Subject<Recipe[]>();
   private recipes = [];
-/*  private recipes: Recipe[] = [
+  /*private recipes: Recipe[] = [
     new Recipe('Sushi Roll',
       'California Sushi Roll',
       'https://www.publicdomainpictures.net/pictures/160000/nahled/california-roll.jpg',
@@ -39,6 +39,10 @@ export class RecipeService {
 
   getRecipe(index: number) {
     return this.recipes[index];
+  }
+
+  addingFakeFunction() {
+    
   }
 
   addRecipe(recipe: Recipe) {
