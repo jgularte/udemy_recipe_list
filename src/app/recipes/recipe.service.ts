@@ -42,7 +42,7 @@ export class RecipeService {
   }
 
   addingFakeFunction() {
-    
+
   }
 
   addRecipe(recipe: Recipe) {
