@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {DataStorageService} from '../common/data-storage.service';
+import {DataStorageService} from '../services/data-storage.service';
 
 @Component({
   selector: 'app-header',
