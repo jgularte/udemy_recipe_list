@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Recipe } from '../recipe.model';
-import {ShoppingListService} from '../../shopping-list/shopping-list.service';
+import {ShoppingListService} from '../../services/shopping-list.service';
 import {ActivatedRoute} from '@angular/router';
-import {RecipeService} from '../recipe.service';
+import {RecipeService} from '../../services/recipe.service';
 import {interval} from 'rxjs';
 import {FormArray} from '@angular/forms';
 

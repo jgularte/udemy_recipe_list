@@ -6,7 +6,7 @@ import {RecipeDetailComponent} from './recipes/recipe-detail/recipe-detail.compo
 import {RecipesComponent} from './recipes/recipes.component';
 import {RecipeStartComponent} from './recipes/recipe-start/recipe-start.component';
 import {RecipesEditComponent} from './recipes/recipes-edit/recipes-edit.component';
-import {RecipesResolverService} from './recipes/recipes-resolver.service';
+import {RecipesResolverService} from './services/recipes-resolver.service';
 
 const routes: Routes =
   [
