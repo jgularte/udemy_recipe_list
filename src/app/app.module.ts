@@ -20,6 +20,8 @@ import { RecipeService } from './services/recipe.service';
 import { DataStorageService } from './services/data-storage.service';
 import { RecipesResolverService } from './services/recipes-resolver.service';
 import { LoggingService } from './services/logging-service.service';
+import { AuthComponent } from './auth/auth.component';
+import {LoadingSpinnerComponent} from './common/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { LoggingService } from './services/logging-service.service';
     ShoppingEditComponent,
     DropdownDirective,
     RecipeStartComponent,
-    RecipesEditComponent
+    RecipesEditComponent,
+    AuthComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
