@@ -16,6 +16,8 @@ export class AuthComponent implements OnInit {
   switchButtonMessage = 'Switch to Sign Up';
   form: FormGroup;
   error: string = null;
+  guestEmail = 'guest@guest.com';
+  guestPassword = 'guestPassword!!24';
 
   constructor(private authService: AuthService,
               private loggingService: LoggingService,
@@ -78,5 +80,10 @@ export class AuthComponent implements OnInit {
     );
 
     this.form.reset();
+  }
+
+  onContinueAsGuest() {
+    this.isLoading = true;
+    const authObs = this.authService.login(this.guestEmail, this.guestPassword);
   }
 }
