@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from './auth.service';
-import {LoggingService} from '../services/logging-service.service';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthResponseData, AuthService } from '../services/auth.service';
+import { LoggingService } from '../services/logging-service.service';
+import { Observable } from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -13,9 +15,11 @@ export class AuthComponent implements OnInit {
   submitButtonMessage = 'Login';
   switchButtonMessage = 'Switch to Sign Up';
   form: FormGroup;
+  error: string = null;
 
   constructor(private authService: AuthService,
-              private loggingService: LoggingService) {
+              private loggingService: LoggingService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -51,28 +55,27 @@ export class AuthComponent implements OnInit {
     }
 
     this.isLoading = true;
+    let authObs: Observable<AuthResponseData>;
+
 
     if (this.isLoginMode) {
-      return;
+      authObs = this.authService.login(this.form.value['email'], this.form.value['password']);
     } else {
-      this.authService.signUp(this.form.value['email'], this.form.value['password'])
-        .subscribe(
-          (responseData) => {
-            console.log(responseData);
-            setTimeout(() => {
-              this.loggingService.info('timing out for spinner');
-            }, 1000);
-            this.isLoading = false;
-          },
-          (error) => {
-            console.log(error);
-            setTimeout(() => {
-              this.loggingService.info('timing out for spinner');
-            }, 1000);
-            this.isLoading = false;
-          }
-        );
+      authObs = this.authService.signUp(this.form.value['email'], this.form.value['password']);
     }
+
+    authObs.subscribe(
+      (responseData) => {
+        console.log(responseData);
+        this.isLoading = false;
+        this.error = null;
+        this.router.navigate(['/recipes']);
+      },
+      (errorMessage) => {
+        this.error = errorMessage;
+        this.isLoading = false;
+      }
+    );
 
     this.form.reset();
   }
