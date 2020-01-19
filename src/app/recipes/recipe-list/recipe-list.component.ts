@@ -5,6 +5,7 @@ import {RecipeService} from '../../services/recipe.service';
 import {Subscription} from 'rxjs';
 import {DataStorageService} from '../../services/data-storage.service';
 import {LoggingService} from '../../services/logging-service.service';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -13,14 +14,14 @@ import {LoggingService} from '../../services/logging-service.service';
 })
 export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: Recipe[];
-  subscription: Subscription;
+  recipeSub: Subscription;
 
   constructor(private recipeService: RecipeService,
               private dataStorageService: DataStorageService,
               private loggingService: LoggingService) { }
 
   ngOnInit() {
-    this.subscription = this.recipeService.recipesChanges
+    this.recipeSub = this.recipeService.recipesChanges
       .subscribe(
         (recipes: Recipe[]) => {
           this.recipes = recipes;
@@ -32,6 +33,6 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.recipeSub.unsubscribe();
   }
 }
