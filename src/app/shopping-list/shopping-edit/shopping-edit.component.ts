@@ -1,9 +1,9 @@
-import {Component, OnInit, ElementRef, ViewChild, OnDestroy} from '@angular/core';
+import {Component, OnInit, ViewChild, OnDestroy} from '@angular/core';
 
-import { Ingredient } from '../../common/ingredient.model';
+import { Ingredient } from '../../common/models/ingredient.model';
 import { ShoppingListService } from '../../services/shopping-list.service';
-import {NgForm} from '@angular/forms';
-import {Subscription} from 'rxjs';
+import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-edit',

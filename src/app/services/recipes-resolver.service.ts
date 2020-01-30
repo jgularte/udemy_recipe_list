@@ -22,18 +22,14 @@ export class RecipesResolverService implements Resolve<Recipe[]> {
         if (+route.paramMap.get('id') > this.recipeService.getRecipes().length - 1) {
           this.loggingService.warn('Requested recipe index is out of range. Routing back to home...');
           this.router.navigate(['../'], { relativeTo: this.activatedRoute });
-        } else {
-          this.loggingService.debug('valid index');
         }
       })
     );
 
     // todo figure out why the fuck this is necessary and where it is resolving the recipe array to
     if (this.recipeService.getRecipes().length === 0) {
-      this.loggingService.debug('length zero');
       return this.dataStorageService.fetchRecipes();
     } else {
-      this.loggingService.debug('length not zero');
       return this.recipeService.getRecipes();
     }
   }

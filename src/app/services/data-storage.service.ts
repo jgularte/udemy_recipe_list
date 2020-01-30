@@ -1,21 +1,20 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {RecipeService} from './recipe.service';
 import {Recipe} from '../recipes/recipe.model';
-import {exhaustMap, map, take, tap} from 'rxjs/operators';
-import {AuthService} from './auth.service';
+import {map, tap} from 'rxjs/operators';
+import {environment} from '../../environments/environment';
 
 @Injectable({providedIn: 'root'})
 export class DataStorageService {
 
   constructor(private http: HttpClient,
-              private recipeService: RecipeService,
-              private authService: AuthService) {
+              private recipeService: RecipeService) {
   }
 
   storeRecipes() {
     const recipes = this.recipeService.getRecipes();
-    return this.http.put('https://recipe-book-backend-6e8e9.firebaseio.com/recipes.json', recipes)
+    return this.http.put(`${environment.firebase.protocol}://${environment.firebase.baseUrl}/recipes.json`, recipes)
       .subscribe(responseData => {
         console.log(responseData);
       });
