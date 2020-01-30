@@ -9,8 +9,7 @@ import {LoggingService} from './logging-service.service';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private authService: AuthService,
-              private loggingService: LoggingService) {
+  constructor(private authService: AuthService) {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -18,7 +17,6 @@ export class AuthInterceptor implements HttpInterceptor {
       take(1),
       exhaustMap((user: User) => {
         if (!user) {
-          this.loggingService.debug('No User in Interceptor');
           return next.handle(req);
         }
         const modifiedReq = req.clone({
