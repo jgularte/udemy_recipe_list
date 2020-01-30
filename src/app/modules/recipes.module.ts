@@ -25,6 +25,4 @@ import {RecipesRoutingModule} from './routing-modules/recipes-routing.module';
     SharedModule
   ]
 })
-export class RecipesModule {
-
-}
+export class RecipesModule {}
