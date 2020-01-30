@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {catchError, tap} from 'rxjs/operators';
-import {BehaviorSubject, Subject, throwError} from 'rxjs';
+import {BehaviorSubject, throwError} from 'rxjs';
 import {User} from '../auth/user.model';
 import {Router} from '@angular/router';
+import {environment} from '../../environments/environment';
 
 export interface AuthResponseData {
   kind: string;
@@ -26,7 +27,7 @@ export class AuthService {
 
   signUp(email, password) {
     return this.http.post<AuthResponseData>(
-      'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAXQqmVN-cwMRFx8TaKNF9MgPKMk-HiW-s',
+      `${environment.googleAuth.protocol}://${environment.googleAuth.baseUrl}/v1/accounts:signUp?key=${environment.googleAuth.apiKey}`,
       {
         email: email,
         password: password,
