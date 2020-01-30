@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './modules/app-routing.module';
 import { AuthInterceptor } from './services/auth-interceptor.service';
 import { SharedModule } from './modules/shared.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SharedModule } from './modules/shared.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     SharedModule
