@@ -1,11 +1,12 @@
-<div [@divState]="state" style="width: 100px; height: 100px"></div>
-<button (click)="onAnimate()">Animate</button>
 <div class="row">
   <div class="col-xs-10">
     <app-shopping-edit></app-shopping-edit>
     <hr>
     <ul class="list-group">
-      <li class="list-group-item clearfix ingredient-item" style="cursor: pointer" *ngFor="let ingredient of getIngredients(); index as i">
+      <li class="list-group-item clearfix ingredient-item"
+          style="cursor: pointer"
+          *ngFor="let ingredient of getIngredients(); index as i"
+          [@addToList]="addList">
         <div>
           <span>{{ ingredient.name }} ({{ ingredient.quantity}})</span>
           <span class="btn-group pull-right">
