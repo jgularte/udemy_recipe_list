@@ -1,15 +1,19 @@
-<a class="list-group-item clearfix" style="margin-bottom: 5px"
-    [routerLink]="[index]"
-    routerLinkActive="active">
-  <div class="pull-left">
-    <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
-    <p class="list-group-item-text">{{ recipe.description }}</p>
+<div class="card mb-3"
+     style="margin-bottom: 5px"
+     [routerLink]="[index]"
+     routerLinkActive="active">
+  <div class="row no-gutters">
+    <div class="col-sm-6">
+      <div class="card-body">
+        <h4 class="card-title">{{ recipe.name }}</h4>
+        <p class="card-text">{{ recipe.description }}</p>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <img
+        [src]="recipe.imagePath"
+        class="img-thumbnail rounded mx-auto"
+        alt="{{ recipe.name }}">
+    </div>
   </div>
-  <span class="pull-right">
-        <img
-          [src]="recipe.imagePath"
-          alt="{{ recipe.name }}"
-          class="img-responsive"
-          style="max-height: 50px;">
-      </span>
-</a>
+</div>
