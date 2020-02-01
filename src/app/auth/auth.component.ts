@@ -3,11 +3,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthResponseData, AuthService } from '../services/auth.service';
 import { LoggingService } from '../services/logging-service.service';
 import { Observable } from 'rxjs';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
-  templateUrl: './auth.component.html'
+  templateUrl: './auth.component.html',
+  styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
   isLoginMode = true;
