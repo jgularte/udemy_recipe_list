@@ -18,9 +18,9 @@
         <input type="password" id="password" class="form-control" formControlName="password">
       </div>
       <div>
-        <button class="btn btn-primary" [disabled]="!form.valid">{{ submitButtonMessage }}</button>
+        <button class="btn custom-btn-primary" [disabled]="!form.valid">{{ submitButtonMessage }}</button>
         |
-        <button class="btn btn-primary" (click)="onSwitchMode()">{{ switchButtonMessage }}</button>
+        <button class="btn custom-btn-danger" (click)="onSwitchMode()">{{ switchButtonMessage }}</button>
       </div>
     </form>
   </div>
