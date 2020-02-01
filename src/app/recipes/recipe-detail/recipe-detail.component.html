@@ -1,29 +1,31 @@
-<div class="card">
-  <img
-    [src]="recipe.imagePath"
-    alt="{{ recipe.name }}"
-    class="img-thumbnail">
-  <div class="card-header">
-    <div class="row">
-      <div class="col-7">
-        <h2>{{ recipe.name }}</h2>
-      </div>
-      <div class="justify-content-end" appDropdown>
-        <a class="btn btn-primary dropdown-toggle">Manage Recipe <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a (click)="toShopping()" style="cursor: pointer">To Shopping List</a></li>
-          <li><a [routerLink]="['/recipes', this.id, 'edit']">Edit Recipe</a></li>
-          <li><a [routerLink]="['/recipes']" (click)="onDeleteRecipe()">Delete Recipe</a></li>
-        </ul>
+<div class="row">
+  <div class="card mb-3" style="width: 100%">
+    <img
+      [src]="recipe.imagePath"
+      alt="{{ recipe.name }}"
+      class="img-thumbnail">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-7">
+          <h2>{{ recipe.name }}</h2>
+        </div>
+        <div class="justify-content-end" appDropdown>
+          <a class="btn btn-primary dropdown-toggle">Manage Recipe <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a (click)="toShopping()" style="cursor: pointer">To Shopping List</a></li>
+            <li><a [routerLink]="['/recipes', this.id, 'edit']">Edit Recipe</a></li>
+            <li><a [routerLink]="['/recipes']" (click)="onDeleteRecipe()">Delete Recipe</a></li>
+          </ul>
+        </div>
       </div>
     </div>
+    <div class="card-body">
+      <div class="card-text"> {{ recipe.description }} </div>
+    </div>
+    <div class="card-footer"
+         *ngFor="let ingredient of recipe.ingredients">
+      {{ ingredient.name }} ({{ ingredient.quantity }})
+    </div>
   </div>
-  <div class="card-body">
-    <div class="card-text"> {{ recipe.description }} </div>
-  </div>
-  <div class="card-footer"
-      style="margin-top: 5px"
-      *ngFor="let ingredient of recipe.ingredients">
-    {{ ingredient.name }} ({{ ingredient.quantity }})
-  </div>
+
 </div>
