@@ -1,11 +1,12 @@
 <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
   <div class="row">
     <div class="col-xs-12">
-      <button type="submit" class="btn btn-primary" [disabled]="!recipeForm.valid">Save</button>
+      <button type="submit" class="btn custom-btn-primary" [disabled]="!recipeForm.valid">Save</button>
       |
-      <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+      <button type="button" class="btn custom-btn-danger" (click)="onCancel()">Cancel</button>
     </div>
   </div>
+  <br>
   <div class="row">
     <div class="form-group" style="width: 100%">
       <label for="name">Name</label>
@@ -19,11 +20,6 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12">
-      <img src="" class="img-responsive">
-    </div>
-  </div>
-  <div class="row">
     <div class="form-group" style="width: 100%">
       <label for="description">Description</label>
       <textarea type="text"
@@ -34,43 +30,47 @@
     </div>
   </div>
   <div class="row" formArrayName="ingredients">
-    <div class="row"
+    <div class="form-row"
          *ngFor="let ingCtrl of controls; let i = index"
          [formGroupName]="i"
          style="margin-top: 5px">
-      <div>
+      <div class="col-8">
         <input type="text" class="form-control" formControlName="name">
       </div>
-      <div>
+      <div class="col-2">
         <input type="number" class="form-control" formControlName="quantity">
       </div>
-      <button class="btn btn-danger" (click)="onDeleteIngredient(i)">Delete Ingredient</button>
+      <div class="col-2">
+        <button class="btn custom-btn-danger" (click)="onDeleteIngredient(i)">Delete</button>
+      </div>
     </div>
   </div>
   <hr>
-  <div class="row" formGroupName="addIngredient">
-    <div class="col-xs-8">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Add an Ingredient"
-        formControlName="name">
-    </div>
-    <div class="col-xs-2">
-      <input
-        type="number"
-        class="form-control"
-        formControlName="quantity">
-    </div>
-    <div class="col-xs-2">
-      <button
-        class="btn btn-success"
-        type="button"
-        style="margin-bottom: 15px"
-        (click)="onAddIngredient()"
-        [disabled]="!recipeForm.controls['addIngredient'].valid">
-        Add Ingredient
-      </button>
+  <div class="row">
+    <div class="form-row" formGroupName="addIngredient">
+      <div class="col-8">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Add an Ingredient"
+          formControlName="name">
+      </div>
+      <div class="col-2">
+        <input
+          type="number"
+          class="form-control"
+          formControlName="quantity">
+      </div>
+      <div class="col-2">
+        <button
+          class="btn custom-btn-primary"
+          type="button"
+          style="margin-bottom: 15px"
+          (click)="onAddIngredient()"
+          [disabled]="!recipeForm.controls['addIngredient'].valid">
+          Add
+        </button>
+      </div>
     </div>
   </div>
 </form>

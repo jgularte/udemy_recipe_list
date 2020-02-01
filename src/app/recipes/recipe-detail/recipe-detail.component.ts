@@ -4,13 +4,11 @@ import { Recipe } from '../recipe.model';
 import {ShoppingListService} from '../../services/shopping-list.service';
 import {ActivatedRoute} from '@angular/router';
 import {RecipeService} from '../../services/recipe.service';
-import {interval} from 'rxjs';
-import {FormArray} from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
-  styleUrls: ['./recipe-detail.component.css']
+  styleUrls: ['./recipe-detail.component.css', '../../app.component.css']
 })
 export class RecipeDetailComponent implements OnInit {
   recipe: Recipe;
