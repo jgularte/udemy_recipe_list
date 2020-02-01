@@ -1,20 +1,28 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-expand navbar-light navbar-background">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a routerLink="/recipes" class="navbar-brand">Recipe Book</a>
-    </div>
+    <a routerLink="/recipes" class="navbar-brand">Recipe Book</a>
     <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li routerLink="/auth"
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"
+            routerLink="/auth"
             routerLinkActive="active"
-            *ngIf="!isAuthenticated"><a>Authenticate</a></li>
-        <li routerLink="/recipes" routerLinkActive="active"><a>Recipes</a></li>
-        <li routerLink="/shopping-list" routerLinkActive="active"><a>Shopping List</a></li>
+            *ngIf="!isAuthenticated">
+          <a class="nav-link">Authenticate</a></li>
+        <li class="nav-item"
+            routerLink="/recipes"
+            routerLinkActive="active">
+          <a class="nav-link">Recipes</a></li>
+        <li routerLink="/shopping-list"
+            routerLinkActive="active">
+          <a class="nav-link">Shopping List</a></li>
       </ul>
-      <ul class="nav navbar-nav pull-right"
-          *ngIf="isAuthenticated">
-        <li (click)="logout()"><a>Logout</a></li>
+      <ul class="navbar-nav">
+        <li class="nav-item"
+            (click)="logout()">
+          <a class="nav-link">Logout</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
+<br>
