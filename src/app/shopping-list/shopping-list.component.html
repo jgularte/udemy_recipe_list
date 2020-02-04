@@ -1,20 +1,23 @@
-<div class="row">
-  <div class="col-xs-10">
-    <app-shopping-edit></app-shopping-edit>
-    <hr>
-    <ul class="list-group">
-      <li class="list-group-item clearfix ingredient-item"
-          style="cursor: pointer"
-          *ngFor="let ingredient of getIngredients(); index as i"
-          [@addToList]="addList">
-        <div>
-          <span>{{ ingredient.name }} ({{ ingredient.quantity}})</span>
-          <span class="btn-group pull-right">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-5">
+      <app-shopping-edit></app-shopping-edit>
+    </div>
+    <div class="col-xs-12 col-md-5 offset-md-1">
+      <ul class="list-group">
+        <li class="list-group-item clearfix ingredient-item"
+            style="cursor: pointer"
+            *ngFor="let ingredient of getIngredients(); index as i"
+            [@addToList]="addList">
+          <div>
+            <span>{{ ingredient.name }} ({{ ingredient.quantity}})</span>
+            <span class="btn-group pull-right">
             <button class="btn btn-warning variable-show-button" (click)="onEditItem(i)">Edit Item</button>
             <button class="btn btn-danger variable-show-button" (click)="deleteIngredient(i)">Delete Item</button>
           </span>
-        </div>
-      </li>
-    </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
