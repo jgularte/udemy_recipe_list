@@ -6,7 +6,7 @@ import {trigger, state, style, transition, animate, keyframes, group} from '@ang
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
-  styleUrls: ['./shopping-list.component.css'],
+  styleUrls: ['./shopping-list.component.css', '../app.component.css'],
   animations: [
     trigger('addToList', [
       state('in', style({
