@@ -9,3 +9,9 @@
   border-color: indianred;
   color: black;
 }
+
+.custom-btn-warning {
+  background-color: khaki;
+  border-color: darkkhaki;
+  color: black;
+}

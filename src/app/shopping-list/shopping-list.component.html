@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-md-5">
       <app-shopping-edit></app-shopping-edit>
     </div>
-    <div class="col-xs-12 col-md-5 offset-md-1">
+    <div class="col-xs-12 col-md-5 offset-md-1 mt-4">
       <ul class="list-group">
         <li class="list-group-item clearfix ingredient-item"
             style="cursor: pointer"
@@ -11,10 +11,10 @@
             [@addToList]="addList">
           <div>
             <span>{{ ingredient.name }} ({{ ingredient.quantity}})</span>
-            <span class="btn-group pull-right">
-            <button class="btn btn-warning variable-show-button" (click)="onEditItem(i)">Edit Item</button>
-            <button class="btn custom-btn-danger variable-show-button" (click)="deleteIngredient(i)">Delete Item</button>
-          </span>
+            <div class="btn-group float-right">
+              <button class="btn custom-btn-warning variable-show-button" (click)="onEditItem(i)">Edit Item</button>
+              <button class="btn custom-btn-danger variable-show-button" (click)="deleteIngredient(i)">Delete Item</button>
+            </div>
           </div>
         </li>
       </ul>

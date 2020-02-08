@@ -9,16 +9,27 @@
         <div class="col-7">
           <h2>{{ recipe.name }}</h2>
         </div>
-        <div class="justify-content-end" appDropdown>
+        <!--<div class="dropdown justify-content-end" id="dropdown-menu" data-toggle="dropdown">
           <button class="btn custom-btn-primary dropdown-toggle">Manage Recipe <span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <li><a (click)="toShopping()" style="cursor: pointer">To Shopping List</a></li>
-            <li><a [routerLink]="['/recipes', this.id, 'edit']">Edit Recipe</a></li>
-            <li><a [routerLink]="['/recipes']" (click)="onDeleteRecipe()">Delete Recipe</a></li>
-          </ul>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" (click)="toShopping()" style="cursor: pointer">To Shopping List</a>
+            <a class="dropdown-item" [routerLink]="['/recipes', this.id, 'edit']">Edit Recipe</a>
+            <a class="dropdown-item" [routerLink]="['/recipes']" (click)="onDeleteRecipe()">Delete Recipe</a>
+          </div>
+        </div>-->
+        <div class="row">
+          <div class="col">
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem>Action - 1</button>
+                <button ngbDropdownItem>Another Action</button>
+                <button ngbDropdownItem>Something else is here</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     <div class="card-body">
       <div class="card-text"> {{ recipe.description }} </div>
     </div>
@@ -27,5 +38,4 @@
       {{ ingredient.name }} ({{ ingredient.quantity }})
     </div>
   </div>
-
 </div>
